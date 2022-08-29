@@ -1,0 +1,69 @@
+<div class="container"  *ngIf='purchasing==false'>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="mb-3 mt-2">
+                <label >Price</label>
+                <input type="text"  class="form-control" [(ngModel)]="searchbook.price" />            
+              </div>
+            <div class="mb-2">
+                <label >Category</label>
+                <input type="text"  class="form-control"  [(ngModel)]="searchbook.category" />            
+              </div> 
+            <div class="mb-3">
+                <label >Publisher</label>
+                <input type="text"  class="form-control"  [(ngModel)]="searchbook.publisher" />            
+            </div> 
+            <button type="submit" class="btn btn-primary mb-1"  style="width: 100%;"  (click)="onSearch()" >Search</button>             
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <div>
+        <div class="table-responsive p-5">
+            <table class="table" *ngIf="resp.length">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Images</th>
+                        <th>Book ID</th>
+                        <th>Book Name</th>
+                        <th>Written By</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let book of resp">
+                        <td><img src="assets/Images/Image3.jfif" [style.width.px]="iconWidth" [style.margin.px]="iconMargin"/></td>
+                        <td>{{book.bookid}}</td>
+                        <td>{{book.title}}</td>
+                        <td>{{book.username}}</td>
+                        <td>{{book.category}}</td>
+                        <td>{{book.price}}</td>
+                        <td  *ngIf='getValue()=="R"'><button type="submit" class="btn btn-primary mt-2" style="width: 100%;"
+                            (click)="onSubmit(book)">Purchase</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    <div class="container">
+        <div class="row" *ngIf='purchasing==true'>
+            <div class="container">
+                <div class="row pt-5">                
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <div class="mb-4">
+                            <label>Email ID</label>
+                            <input type="text" class="form-control" [(ngModel)]="purchaseBookData.email" />
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-4" style="width: 100%;" (click)="OnPurahase()">Buy Book</button>       
+                        <button type="submit" class="btn btn-danger mb-4" style="width: 100%;" (click)="onClear()">Clear</button>       
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    

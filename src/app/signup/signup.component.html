@@ -1,0 +1,37 @@
+<div class="container pt-3">
+  <form #signupForm="ngForm">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class=" mb-4">
+                <label class="form-label" for="form2Example1">Username</label>
+                <input type="email"  name="name"  #name="ngModel" required  class="form-control" [(ngModel)]="user.Username" />            
+                <div *ngIf="name.errors?.['required'] && name.touched" class="text-danger">Username Required.</div>          
+              </div>              
+              <div class=" mb-4">
+                <label class="form-label" for="form2Example1">User Type</label>
+                <select [(ngModel)]="user.UserType"  name="ut"  #ut="ngModel" required class="form-control dropdown">
+                    <option>--Select--</option>
+                    <option>Author</option>
+                    <option>Reader</option>
+                </select>       
+                <div *ngIf="ut.touched && user.UserType=='--Select--'" class="text-danger">Select User Type.</div>          
+              </div>
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example2">Password</label>
+                <input type="password"  name="pass"  #pass="ngModel" required   class="form-control" [(ngModel)]="user.Password" />                      
+                <div *ngIf="pass.errors?.['required'] && pass.touched" class="text-danger">Password Required.</div>          
+              </div>   
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example2">Confirm Password</label>
+                <input type="password"  name="cpass"  #cpass="ngModel" required   class="form-control" [(ngModel)]="confirmpass" />                      
+                <div *ngIf="cpass.errors?.['required'] && cpass.touched" class="text-danger">Confirm Password Required.</div>          
+              </div>               
+              <button type="submit" class="btn btn-primary mb-4"  [disabled]="signupForm.invalid"  (click)="onSubmit()" style="width: 100%;">Sign Up</button>              
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+  </form>
+    </div>
+    
+    

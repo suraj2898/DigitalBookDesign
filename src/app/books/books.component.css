@@ -1,0 +1,13 @@
+.bgColor
+{
+    background-color: rgb(199, 213, 238);
+    color: rgb(23, 17, 43);
+    font-weight: bold; 
+}
+.myheading
+{
+    width: 200px;
+    text-align: center;
+    padding:100px;
+    color: red;
+}

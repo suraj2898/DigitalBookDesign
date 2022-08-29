@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+        <div class="container">
+            <div class="row pt-3">                
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                    <div class="mb-4">
+                        <label>Book Title</label>
+                        <input type="text" class="form-control" [(ngModel)]="book.title" />
+                    </div>                    
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-4">
+                        <label>Category</label>
+                        <input type="text" class="form-control" [(ngModel)]="book.category" />
+                    </div>     
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                    <div class="mb-4">
+                        <label>Publisher</label>
+                        <input type="text" class="form-control" [(ngModel)]="book.publisher" />
+                    </div>   
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-4">
+                        <label>Price</label>
+                        <input type="text" class="form-control" [(ngModel)]="book.price" />
+                    </div>  
+                </div>
+                <div class="col-md-2"></div>
+                
+                <div class="col-md-2"></div>                
+                <div class="col-md-4">
+                    <div class="mb-4">
+                        <label>Created Date</label>
+                        <input type="text" class="form-control" [(ngModel)]="book.createddate" />
+                    </div>                    
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-4">
+                        <label>Image</label>
+                        <input type="file" class="form-control" />
+                    </div>                    
+                </div>
+                <div class="col-md-2"></div>
+                
+
+                <div class="col-md-2"></div>  
+                <div class="col-md-8">
+                    <div class="mb-4">
+                        <label>Book Content</label>
+                        <textarea  class="form-control" [(ngModel)]="book.bookcontent"></textarea>
+                        
+                    </div>   
+                </div>
+                <div class="col-md-2"></div>  
+
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="mb-4">
+                        <button type="submit" class="btn btn-primary mb-4" style="width: 100%;" (click)="onSubmit()">Add Book</button>       
+                    </div>                    
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </div>
+</div>

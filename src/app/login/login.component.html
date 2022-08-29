@@ -1,0 +1,23 @@
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <form #loginForm="ngForm">
+            <div class=" mb-4">
+                <label class="form-label" for="form2Example1">Username</label>
+                <input type="email" name="name"  #name="ngModel" required class="form-control" [(ngModel)]="user.Username" />  
+                <div *ngIf="name.errors?.['required'] && name.touched" class="text-danger">Username Required.</div>          
+              </div>
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example2">Password</label>
+                <input type="password" name="pass"  #pass="ngModel" class="form-control" required [(ngModel)]="user.Password" />   
+                <div *ngIf="pass.errors?.['required'] && pass.touched" class="text-danger">Password Required.</div>  
+              </div>                  
+              <button type="submit" class="btn btn-primary mb-4" [disabled]="loginForm.invalid" (click)="onSubmit()" style="width: 100%;">Sign In</button>              
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    </div>
+    
+    

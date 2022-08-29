@@ -1,0 +1,52 @@
+<div class="table-responsive p-2">
+    <div *ngIf="resp.length==0" class="p-5 mt-5" style="font-size: 70px;margin-left: 500px;">
+        Loading .......
+    </div>
+    <table class="table" *ngIf="resp.length">
+        <thead class="table-primary">
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Publisher</th>
+                <th>Price</th>
+                <th>Book Content
+                </th>
+                <th>
+                    Status
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of resp">
+
+                <td style="width: 13%;"><input type="text" class="form-control" [(ngModel)]="book.title" /> </td>
+                <td style="width: 10%;"><input type="text" class="form-control" [(ngModel)]="book.category" /> </td>
+                <td style="width: 10%;"><input type="text" class="form-control" [(ngModel)]="book.publisher" /> </td>
+                <td style="width: 7%;"><input type="text" class="form-control" [(ngModel)]="book.price" />
+
+                </td>
+                <td style="width: 35%;"><textarea  class="form-control" [(ngModel)]="book.bookContent"></textarea>
+                    <input type="hidden" class="form-control" [(ngModel)]="book.createdDate" />
+                    <input type="hidden" class="form-control" [(ngModel)]="book.modifiedDate" />
+                    <input type="hidden" class="form-control" [(ngModel)]="book.publishDate" />
+                    <input type="hidden" class="form-control" [(ngModel)]="book.userid" />
+                    <input type="hidden" class="form-control" [(ngModel)]="book.logo" />
+                    <input type="hidden" class="form-control" [(ngModel)]="book.bookid" />
+                </td>
+                <td style="width: 10%;">
+                    <select [(ngModel)]="book.active" class="form-control">
+                        <option [ngValue]="true">Active</option>
+                        <option [ngValue]="false">Deactive</option>
+                    </select>
+                </td>
+                <td style="width: 10%;">
+                    <button type="submit" class="btn btn-primary mb-4" (click)="updateBook(book)"
+                        style="width: 100%;">Update</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

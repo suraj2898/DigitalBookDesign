@@ -1,0 +1,62 @@
+
+<div class="table-responsive p-5 pt-0" *ngIf="viewDetails==false">
+    <div class="row p-2">
+        <div class="col-md-12 text-center font">
+            <b>Purchased Books List</b>
+        </div>
+    </div>
+    <table class="table" *ngIf="resp.length">
+        <thead class="table-dark">
+            <tr>
+                <th>Images</th>
+                <th>Book ID</th>
+                <th>Book Name</th>
+                <th>Category</th>
+                <th>Price
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of resp">
+                <td><img src="assets/Images/Image3.jfif"  [style.width.px]="iconWidth" [style.margin.px]="iconMargin"/></td>
+                <td>{{book.bookid}}</td>
+                <td>{{book.title}}</td>
+                <td>{{book.category}}</td>
+                <td>{{book.price}}
+                    <input type="hidden" [(ngModel)]="book.bookContent">
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-primary mb-1"  style="width: 100%;"  (click)="onSubmit(book)" >Read</button> 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row" *ngIf="viewDetails==true">
+<div class="col-md-5"></div>
+<div class="col-md-2 p-2 text-center">
+    <img src="assets/Images/Image3.jfif" style="height: 100%;width: 100%;"/>
+</div>
+<div class="col-md-5"></div>
+<div class="col-md-4"></div>
+<div class="col-md-4 p-2 text-center">
+    Book Title : {{book.title}}
+</div>
+<div class="col-md-4"></div>
+<div class="col-md-4"></div>
+<div class="col-md-4 p-2 text-center">
+    Category : {{book.category}}
+</div>
+<div class="col-md-4"></div>
+<div class="col-md-3"></div>
+<div class="col-md-6 p-2 text-center text-capitalize">
+    content : {{book.bookContent}}
+</div>
+<div class="col-md-3"></div>
+<div class="col-md-5"></div>
+<div class="col-md-2 p-2 text-center">
+    <button type="submit" class="btn btn-primary mb-1"  style="width: 100%;"  (click)="onClear()" >Back To View Books List</button> 
+</div>
+<div class="col-md-5"></div>
+</div>
